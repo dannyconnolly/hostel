@@ -1,0 +1,121 @@
+.sidebar {
+    width: 190px;
+    float: left;
+    position: static;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: #505050;
+    border-right-width: 0;
+    &::before {
+        content: "";
+        display: block;
+        width: inherit;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+        background-color: inherit;
+        border-style: inherit;
+        border-color: inherit;
+        border-width: inherit;
+    }
+    ul.nav-list{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        > li{
+            display: block;
+            position: relative;
+            float: none;
+            padding: 0;
+            border-style: solid;
+            border-color: #484848;
+            border-width: 1px 0 0;
+            margin: 0;
+            overflow: hidden;
+            > a{
+                display: block;
+                color: #E1E1E1;
+                height: 39px;
+                line-height: 17px;
+                padding-left: 7px;
+                text-shadow: none !important;
+                font-size: 13px;
+                text-decoration: none;
+                background-color: #393939;
+                &:hover, &:focus{
+                    background: rgba(0,0,0,0.5);
+                }
+                &:active{
+                    background: #D9B41F;
+                }
+                .menu-icon {
+                    display: inline-block;
+                    min-width: 30px;
+                    margin-right: 2px;
+                    vertical-align: sub;
+                    text-align: center;
+                    font-size: 18px;
+                    font-weight: normal;
+                }
+            }
+            .arrow {
+                display: block;
+                width: 14px !important;
+                height: 14px;
+                line-height: 14px;
+                text-shadow: none;
+                font-size: 18px;
+                position: absolute;
+                right: 10px;
+                top: 12px;
+                padding: 0;
+                text-align: center;
+                color: #E1E1E1;
+            }
+             .submenu {
+                max-height: 0;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                line-height: 1.5;
+                position: relative;
+                border-top: 1px solid;
+                background-color: #36432F;
+                @include transition(all, 600ms, cubic-bezier(0.1, 0.7, 1.0, 0.1), 10ms);
+                > li{
+                    margin-left: 0;
+                    position: relative;
+                    &:before{
+                        content: "";
+                        display: block;
+                        width: 7px;
+                        position: absolute;
+                        z-index: 1;
+                        left: 20px;
+                        top: 17px;
+                        border: 1px dotted;
+                        border-width: 1px 0 0;
+                    }
+                    > a{
+                        color: #EEE;
+                        font-size: 13px;
+                        border-top: 1px solid;
+                        border-top-color: #555;
+                        border-top-color: rgba(255, 255, 255, 0.08);
+                        background-color: rgba(0, 0, 0, 0);
+                        display: block;
+                        position: relative;
+                        padding: 7px 0 9px 37px;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+        li.on{
+            .submenu{
+                max-height: 400px;
+            }
+        }
+    }
+}

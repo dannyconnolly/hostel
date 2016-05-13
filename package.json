@@ -1,0 +1,21 @@
+{
+  "name": "h_manager",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-nodeunit": "~0.3.3",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-sass": "~0.7.3",
+    "grunt-contrib-watch": "~0.6.1"
+  },
+  "keywords": [
+    "Hostel Manager",
+    "Event Manager",
+    "Ireland"
+  ],
+  "author": "Danny Connolly",
+  "bugs": {
+    "url": "http://www.dannyconnolly.me"
+  }
+}

@@ -1,0 +1,165 @@
+@mixin css3($property, $value) {
+     @each $prefix in -webkit-, -moz-, -ms-, -o-, '' {
+          #{$prefix}#{$property}: $value;
+     }
+}
+@mixin borderboxsize ($sizingtype) {
+    @include css3(box-sizing,  $sizingtype);
+}
+@mixin backgroundsize($w, $h){
+    $bgsize: $w $h; 
+    @include css3(background-size, $bgsize);
+}
+@mixin backgroundelement{
+    display:block;
+    text-indent: -999em;
+}
+@mixin opacity($trans) {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$trans * 100})";
+  filter: alpha(opacity=($trans * 100));
+  -moz-opacity: $trans;
+  -khtml-opacity: $trans;
+  opacity: $trans;
+}
+@mixin linear-gradient($fromColor, $toColor) {
+  background-color: $toColor; /* Fallback Color */
+  background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image:    -moz-linear-gradient(top, $fromColor, $toColor); /* FF3.6 */
+  background-image:     -ms-linear-gradient(top, $fromColor, $toColor); /* IE10 */
+  background-image:      -o-linear-gradient(top, $fromColor, $toColor); /* Opera 11.10+ */
+  background-image:         linear-gradient(top, $fromColor, $toColor);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$fromColor}', EndColorStr='#{$toColor}');
+}
+@mixin scrollbar($size, $primary, $secondary: lighten($primary, 25%)) {
+	::-webkit-scrollbar {
+		width:  $size;
+		height: $size;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: $primary;
+	}
+
+	::-webkit-scrollbar-track {
+		background: $secondary;
+	}
+  
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $primary;
+    scrollbar-track-color: $secondary;
+  }
+}
+
+@mixin rem($property, $values) {
+  $px: null;
+  $rem: null;
+  
+  @each $value in $values {
+   
+    @if $value == 0 or $value == auto {
+      $px : append($px , $value);
+      $rem: append($rem, $value);
+    }
+    
+    @else { 
+      $unit: unit($value);
+      $val: $value / ($value * 0 + 1); /* 1 */
+      
+      @if $unit == px {
+        $px : append($px,  $value);
+        $rem: append($rem, ($val / 10 * 1rem));
+      }
+      
+      @if $unit == rem {
+        $px : append($px,  ($val * 10 * 1px));
+        $rem: append($rem, $value);
+      }
+    }
+  }
+  
+  #{$property}: $px;
+  #{$property}: $rem;
+}
+
+@mixin vertical-align {
+    position: relative;
+    top: 50%;
+    @include css3(transform,  translateY(-50%));
+}
+
+@mixin border-radius($radius: 4px){
+    @include css3(border-radius, $radius);
+}
+@mixin box-shadow($boxshadow: 0px 0px 3px rgba(0,0,0,0.2)){
+    @include css3(box-shadow, $boxshadow);
+}
+
+@mixin transition($proderty: all, $duration: 0.5s, $timing-function: linear, $delay: 0s){
+    $transition:  $proderty, $duration, $timing-function, $delay;
+    @include css3(transition, $transition);
+}
+
+@mixin nav-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+@mixin at-least($device-width) {
+  @media screen and (min-width: $device-width) {
+    @content 
+  }
+}
+
+@mixin until($device-width) {
+  @media screen and (max-width: $device-width - 1) {
+    @content 
+  }
+}
+
+@mixin alpha-attribute($attribute, $color, $background) {
+  $percent: alpha($color) * 100%;
+  $opaque: opacify($color, 1);
+  $solid-color: mix($opaque, $background, $percent);
+  #{$attribute}: $solid-color;
+  #{$attribute}: $color;
+}
+
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex:  $values;
+  -webkit-flex:  $values;
+  -ms-flex:  $values;
+  flex:  $values;
+}
+
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;  
+  -moz-box-ordinal-group: $val;     
+  -ms-flex-order: $val;     
+  -webkit-order: $val;  
+  order: $val;
+}
+
+@mixin list-group-styles{
+    overflow: hidden;
+    li{
+        width: 50%;
+        float: left;
+        &:first-child, &:last-child{
+            border-radius: 0;
+        }
+    }
+    .media-heading{
+        font-weight: 700;
+    }
+}

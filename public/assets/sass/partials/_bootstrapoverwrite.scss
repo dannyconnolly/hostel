@@ -1,0 +1,32 @@
+.navbar{
+    margin-bottom: 0;
+}
+.navbar-default{
+    @include border-radius(0);
+    @include box-shadow(none);
+    border-color: transparent;
+    background: #6AB14A;
+    .navbar-brand {
+        color: #FFF;
+        text-shadow: none;
+    }
+    .navbar-nav{
+        >li{
+            >a {
+                color: #FFF;
+                @include transition();
+                text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+                &:hover{
+                    text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+                }
+            }
+        }
+    }
+}
+.page-header{
+    margin-top: 0;
+}
+
+.action-column{
+    width: 150px;
+}

@@ -1,0 +1,87 @@
+body{
+    background: #505050;
+}
+.main-container{
+    &:before {
+        display: block;
+        content: "";
+        position: absolute;
+        z-index: -2;
+        width: 100%;
+        max-width: inherit;
+        bottom: 0;
+        top: 0;
+        background-color: #FFF; 
+    }
+}
+.main-content {
+     background: #fff;
+    margin-left: 190px;
+    min-height: 100%;
+    padding: 0;
+}
+.page-content{
+    padding: 0 20px 40px;
+    min-height: 600px;
+}
+.page-header {
+    position: relative;
+    a {
+        position: absolute;
+        right: 0;
+        top:0;
+    }
+}
+.view{
+    p{
+        border-bottom: 1px solid #e8e8e8;
+        strong{
+            width: 250px;
+            display: inline-block;
+        }
+    }
+}
+footer{
+    clear: both;
+    background: #e9e9e3;
+    text-align: center;
+    padding: 40px 0;
+}
+.cke{
+    width: 800px !important;
+}
+.invoice-page{
+    border: 15px solid #F3F3F4;
+    overflow: hidden;
+    .view{
+        border: 1px solid #E7EAEC;
+        padding: 40px;
+        p{
+            border: none;
+        }
+    }
+}
+.invoice-note {
+    color: #999;
+    margin-top: 80px;
+    font-size: 85%;
+    margin-bottom: 20px;
+}
+.invoice-footer {
+    border-top: 1px solid #DDD;
+    padding-top: 10px;
+    font-size: 10px;
+}
+
+.hostel-list-group{
+    margin: 0;
+    li{
+        width: 33%;
+        float: left;
+    }
+}
+
+ul.pagination{
+    clear: both;
+    width: 100%;
+}
